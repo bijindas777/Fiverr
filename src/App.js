@@ -1,23 +1,79 @@
-import logo from './logo.svg';
-import './App.css';
+/* The following line can be included in your src/index.js or App.js file */
+import './App.scss';
+import Footer from './components/footer/Footer';
+import Navbar from './components/navbar/Navbar';
+import React from 'react';
+import Home from "./pages/home/Home";
+import Gigs from "./pages/gigs/Gigs";
+import Gig from "./pages/gig/Gig";
+import Add from "./pages/add/Add";
+import Orders from "./pages/orders/Orders";
+import Messages from "./pages/messages/Messages";
+import Message from "./pages/message/Message";
+import MyGigs from "./pages/myGigs/MyGigs";
+
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Outlet
+} from "react-router-dom";
 
 function App() {
+
+  const Layout = () =>{
+    return (
+      <div className='app'>
+
+      <Navbar/>
+      <Outlet/>
+      <Footer/>
+      </div>
+    )
+  }
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Layout />,
+      children:[
+        {
+          path:"/",
+          element:<Home />
+        },
+        {
+          path:"/gigs",
+          element:<Gigs/>
+        },
+        {
+          path:"/gig/:id",
+          element:<Gig/>
+        },
+         {
+          path:"/orders",
+          element:<Orders/>
+        },
+        {
+          path:"/mygigs",
+          element:<MyGigs/>
+        },
+        {
+          path:"/add",
+          element:<Add/>
+        },
+        {
+          path:"/messages",
+          element:<Messages/>
+        },
+        {
+          path:"/message:id",
+          element:<Message/>
+        }
+      ]
+    },
+  ]);
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <RouterProvider router={router} />
     </div>
   );
 }
