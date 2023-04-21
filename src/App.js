@@ -61,11 +61,11 @@ function App() {
         },
         {
           path:"/messages",
-          element:<Messages/>
+          element:<Messages />
         },
         {
-          path:"/message:id",
-          element:<Message/>
+          path:"/message/:id",
+          element:<Message />
         }
       ]
     },

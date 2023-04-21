@@ -8,22 +8,29 @@ const featured = () => {
  <Container>
       <Row>
         <Col>
-          <div className="d-flex flex-column align-items-center">
-            <h1 className="text-center">Find the perfect freelance services for your business</h1>
-            <div className="d-flex align-items-center">
+          <div className="d-flex flex-column align-items-center left">
+            <h1 className="text-center">Find the perfect <i>freelance</i>  services for your business</h1>
+            <div className="d-flex align-items-center search">
+              <div className="searchInput">
+        <img src="./images/search.png" alt="" />
               <input type="text" className="form-control" placeholder='Try "building mobile app" ' />
-              <button className="btn btn-primary ml-2">Search</button>
+              </div>
+              <button className="btn btn ml-2">Search</button>
             </div>
-            <div className="d-flex justify-content-between mt-2">
-              <button className="btn btn-link">Web Design</button>
-              <button className="btn btn-link">Wordpres</button>
-              <button className="btn btn-link">Logo Design</button>
-              <button className="btn btn-link">AI Services</button>
+            <div className="d-flex justify-content-between mt-2 popular">
+               <span>Popular:</span>
+              <button className="btn ">Web Design</button>
+              <button className="btn ">Wordpres</button>
+              <button className="btn ">Logo Design</button>
+              <button className="btn">AI Services</button>
             </div>
           </div>
         </Col>
         <Col>
-          <img src="your-image-src" className="img-fluid" alt="Responsive Image" />
+        <div className='right'>
+
+          <img src="./images/man.png" className="img-fluid" alt="Responsive Image" />
+        </div>
         </Col>
       </Row>
     </Container>
